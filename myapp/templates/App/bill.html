@@ -1,0 +1,76 @@
+{% extends 'App/base.html' %}
+{% load cart %}
+{% block content%}
+<section class="main">
+    <section class="main-course">
+      <form action="/bill" method="POST">
+        {% csrf_token %}
+        <section id="cart" class="section-p1">
+          <div class="container-bill">
+            <div class="bill-container">
+              <div class="left-section">
+                  <h5>Bill number</h5>
+                  <p> 1100</p>
+              </div>
+              <div class="right-section">
+                  <h5>Contact</h5>
+                  <input type="text" name="contact" placeholder="9800000">
+              </div>
+            </div>
+
+            <div class="pro-table">
+            <table width="100%">
+                <thead>
+                    <tr>
+                      <th> S.N </th>
+                      <th> Product </th>
+                      <th> Price </th>
+                      <th> Quantity </th>
+                      <th> Total </th>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                  {% for n in products%}
+                  <tr>
+                     <td> {{ forloop.counter }} </td>
+                     <td>{{ n.productname }}</td> 
+                     <td>$ {{ n.mrp }}</td>
+                     <td>{{ n | product_quantity:request.session.cart }}</td>
+                     <td>$ {{ n | price_total:request.session.cart }}</td>
+  
+                  </tr>
+              
+                 {% endfor %}
+                </tbody>
+                     
+               <tfoot>
+                <tr>
+                  <th ></th>
+                  <th> Total</th>
+                  <th>$ {{ products | total_cart_price:request.session.cart}}</th>
+                 </tr>
+
+              </tfoot>
+         
+            </table>
+            </div>
+            <button type="submit" class="normal">
+               Complete
+          </button>
+            </div>
+        </section>
+      </form>
+    </section>
+  </section> 
+
+
+{% endblock %}
+
+      
+     
+ 
+ 
+
+
+

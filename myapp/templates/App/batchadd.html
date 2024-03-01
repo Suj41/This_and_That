@@ -1,0 +1,57 @@
+{% extends 'App/base.html' %}
+{% block content %}
+
+
+ 
+ 
+    <section class="main">
+        <section class="main-course">
+            <section id="batch" class="section-p1">
+                <div class="batch-container">
+                    <h2>Add Batch</h2>
+                    <form id="batchForm" action="/batchadd" method="POST">
+            
+                        {% csrf_token %}
+                        
+                      
+                        <div class="form-group">
+                            <label for="batchnumber">Batch Number</label>
+                            <input type="number" id="batchnumber" name="batchnumber" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="productname">Product Name</label>
+                            <input type="text" id="productname" name="productname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">quantity</label>
+                            <input type="number" id="quantity" name="quantity" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="batchcost">batchcost</label>
+                            <input type="text" id="batchcost" name="batchcost" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="batchdate">batchdate</label>
+                            <input type="date" id="batchdate" name="batchdate" >
+                        </div>
+                        <div class="form-group">
+                            <label for="manufacturedate">manufacturedate</label>
+                            <input type="date" id="manufacturedate" name="manufacturedate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expirydate">expirydate</label>
+                            <input type="date" id="expirydate" name="expirydate" required>
+                        </div>
+                        <button type="submit" class="normal">
+                             Add Batch
+                        </button>
+                    </form>
+                </div>
+                </section>
+            
+        </section>
+    </section>
+
+
+{% endblock %}

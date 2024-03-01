@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="cart" class="section-p1">
+    <div class="pro-table">
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>S.N.</td>
+                <td>Department Name</td>
+                <td>Department Type</td>
+                <td>Address</td>
+                <td>Contact</td>
+            </tr>
+        </thead>
+        {%for dept in department %}
+        <tbody>
+            <tr style="cursor: pointer; cursor: hand;" onclick="window.location=`{% url 'dept-view' dept.id %}`">
+               <td> {{ forloop.counter }} </td>
+               <td>{{ dept.deptname }}</td>
+               <td>{{ dept.depttype }}</td>
+               <td>{{ dept.address }}</td>
+               <td>{{ dept.contact }}</td> 
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    </div>
+    <div class="pro-button">
+    <button type="submit" class="normal">
+        <a href="/deptadd">Add Department</a>
+        </button>
+    </div>
+</section>
+
+
+
+
+
+
+{% endblock %}

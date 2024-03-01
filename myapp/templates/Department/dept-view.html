@@ -1,0 +1,55 @@
+{% extends 'App/base.html'%}
+
+{% block content %}
+
+<section class="main">
+ 
+    <section class="main-course">
+        <section id="cart" class="section-p1">
+
+            <div class="pro-table">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>Depatment Name</td>
+                        <td>Department Type</td>
+                        <td>Address</td>
+                        <td>Email</td>
+                        <td>Contact</td>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    
+                    <tr style="cursor: pointer; cursor: hand;" >
+                       
+                        <td>{{dept.deptname}}</td>
+                        <td>{{dept.depttype}}</td>
+                        <td>{{dept.address}}</td>
+                        <td>{{dept.email}}</td>
+                        <td>{{dept.contact}}</td>
+                    </tr>
+                 
+                </tbody>
+         
+            </table>
+            </div>
+            <div class="dept-button">
+                <a href="{% url 'dept-delete' dept.id %}" class="delete-button">Delete</a>
+                <a href="{% url 'dept-update' dept.id %}" class="update-button">Update</a>
+            </div>
+            </div>
+            
+        </section>
+       
+    </section>
+</section>
+
+    
+
+   
+
+   
+
+
+{% endblock %}

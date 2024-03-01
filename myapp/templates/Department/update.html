@@ -1,0 +1,51 @@
+{% extends 'App/base.html' %}
+{% block content %}
+
+
+ 
+ 
+    <section class="main">
+        <section class="main-course">
+            <section id="batch" class="section-p1">
+                <h3>Update Department {{dept.id}}</h3>
+                <div class="batch-container">
+                    
+                    <form id="batchForm" action="{% url 'dept-update' dept.id %}" method="POST">
+            
+                        {% csrf_token %}
+                        
+                      
+                        <div class="form-group">
+                            <label for="deptname">Department Name</label>
+                            <input type="text" id="deptname" name="deptname" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="depttype">Department Type</label>
+                            <input type="text" id="depttype" name="depttype" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Contact</label>
+                            <input type="text" id="contact" name="contact" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" >
+                        </div>
+                       
+                        <button type="submit" class="normal">
+                            Update Customer
+                        </button>
+                    </form>
+                </div>
+                </section>
+            
+        </section>
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section id="hero">
+    <h4>Discover "This and That"</h4>
+    <h2>Complete Inventory Management Solution!</h2>
+    <h1>Enhance, Optimize,</h1>
+    <h1>Empower.</h1>
+    <p>Don't miss the chance to transform your business. </p>
+</section>
+
+<section id="feature" class="section-p1">
+    <div class="feature-header">
+    <h2>Cutting-Edge Solutions</h2>
+    <p>Revolutionize Inventory: Fresh, Innovative Approach</p>
+    </div>
+    <div class="fe-box-container">
+    <div class="fe-box">
+        <img src="{% static 'img/features/f1.png'%}" alt="">
+        <h6>Efficient Tracking</h6>
+    </div>
+    <div class="fe-box">
+        <img src="{% static 'img/features/f2.png'%}" alt="">
+        <h6>Smart Insights</h6>
+    </div>
+    <div class="fe-box">
+        <img src="{% static 'img/features/f3.png'%}" alt="">
+        <h6>Integrated Function</h6>
+    </div>
+    <div class="fe-box">
+        <img src="{% static 'img/features/f4.png'%}" alt="">
+        <h6>Tailored Reports</h6>
+    </div>
+    <div class="fe-box">
+        <img src="{% static 'img/features/f5.png'%}" alt="">
+        <h6>Intuitive UI</h6>
+    </div>
+    <div class="fe-box">
+        <img src="{% static 'img/features/f6.png'%}" alt="">
+        <h6>Adaptable Control</h6>
+    </div>
+</div>
+</section>
+
+
+<section id="banner" class="section-m1">
+    <h4>Client Assistance</h4>
+    <h2> Continuous Aid<span> and </span>Support</h2>
+    <button class="normal">Explore</button>
+</section>
+
+{% endblock %}

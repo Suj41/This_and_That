@@ -1,0 +1,42 @@
+{% extends 'App/base.html' %}
+{% block content %}
+
+<section class="main">
+ 
+    <section class="main-course">
+        <section id="cart" class="section-p1">
+            <div class="pro-table">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>S.N.</td>
+                        <td>Product Name</td>
+                        <td>Brand Name</td>
+                        <td>Image</td>
+                        <td>Market Price</td>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    {% for n in products %}
+                    <tr style="cursor: pointer; cursor: hand;" >
+                       <td> {{forloop.counter}} </td>
+                        <td>{{n.productname}}</td>
+                        <td>{{n.brandname}}</td>
+                        <td><img src="{{ n.image.url }}" alt="Product Image" style="max-width: 100px; max-height: 100px;"></td>
+                        <td>{{n.mrp}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+         
+            </table>
+            </div>
+            <div class="dept-button">
+                <a href="{% url 'productadd' dept.id %}" class="update-button">Add Product</a>
+            </div>
+            </div>
+        </section>
+    </section>
+  </section> 
+
+{% endblock %}

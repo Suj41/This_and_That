@@ -1,0 +1,42 @@
+{% extends 'App/base.html' %}
+{% block content %}
+
+<section class="main">
+ 
+    <section class="main-course">
+        <section id="cart" class="section-p1">
+            <div class="pro-table">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>S.N.</td>
+                        <td>Product Name</td>
+                        <td>Batch Number</td>
+                        <td>Batch Cost</td>
+                        <td>Batch Date</td>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    {% for n in batchs %}
+                    <tr style="cursor: pointer; cursor: hand;" >
+                       <td> {{forloop.counter}} </td>
+                        <td>{{n.product.productname}}</td>
+                        <td>{{n.batchnumber}}</td>
+                        <td>{{n.batchcost}}</td>
+                        <td>{{n.batchdate}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+         
+            </table>
+            </div>
+            <div class="dept-button">
+                <a href="{% url 'batchadd' dept.id %}" class="update-button">Batch Add</a>
+            </div>
+            </div>
+        </section>
+    </section>
+  </section> 
+
+{% endblock %}

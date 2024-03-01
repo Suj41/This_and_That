@@ -1,0 +1,93 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>This and That</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style1.css' %}">
+    </head>
+    {% if request.session.department %}
+      <div class="container">
+        
+        <nav>
+          <ul>
+            <li><a href="#" class="logo">
+              <img src="{% static 'img/logo.png'%}" alt="">
+            </a></li>
+            <li><a href="#" class="logo">
+                <span class="nav-item">DashBoard</span>
+              </a></li>
+            <li><a href="{% url 'dept-view' dept.id %}">
+              <i class="fas fa-store"></i>
+              <span class="nav-item">Department</span>
+            </a></li>
+            <li><a href="{% url 'productlist' dept.id %}">
+              <i class="fas fa-box-check"></i>
+              <span class="nav-item">Products</span>
+            </a></li>
+            <li><a href="{% url 'batchlist' dept.id %}">
+              <i class="fas fa-tasks"></i>
+              <span class="nav-item">Batch</span>
+            </a></li>
+            <li><a href="">
+              <i class="fas fa-chart-bar"></i>
+              <span class="nav-item">Analytics</span>
+            </a></li>
+            <li><a href="{% url 'customerlist' dept.id %}">
+              <i class="fas fa-user"></i>
+              <span class="nav-item">Customer</span>
+            </a></li>
+            <li><a href="/biling">
+              <i class="fas fa-wallet"></i>
+              <span class="nav-item">Sales</span>
+            </a></li>
+            <li><a href="/bill">
+              <i class="fas fa-money-bill"></i>
+              <span class="nav-item">Sales</span>
+            </a></li>
+           
+            <li><a href="/logout" class="logout">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-item">Log out</span>
+            </a></li>
+          </ul>
+        </nav>
+        
+    
+
+
+        <section class="main">
+       
+            {% block content %}
+            {% endblock %}
+
+          <footer class="section-p1">     
+            <div class="copyright">
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                       2024, HTML/CSS Webapplication Template</p>
+            </div>
+        </footer>
+        </section> 
+       
+      </div>
+     
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    </body>
+    {% else %}
+    {% include 'Department/DeptList.html' %}
+
+    {% endif %}
+    </html>

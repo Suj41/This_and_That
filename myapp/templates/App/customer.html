@@ -1,0 +1,42 @@
+{% extends 'App/base.html' %}
+{% block content %}
+
+<section class="main">
+ 
+    <section class="main-course">
+        <section id="cart" class="section-p1">
+            <div class="pro-table">
+            <table width="100%">
+                <thead>
+                    <tr>
+                        <td>S.N.</td>
+                        <td>First Name</td>
+                        <td>Last Number</td>
+                        <td>Gender</td>
+                        <td>Contact</td>
+                    </tr>
+                </thead>
+            
+                <tbody>
+                    {% for n in customers %}
+                    <tr style="cursor: pointer; cursor: hand;" >
+                       <td> {{forloop.counter}} </td>
+                        <td>{{n.firstname}}</td>
+                        <td>{{n.lastname}}</td>
+                        <td>{{n.gender}}</td>
+                        <td>{{n.contact}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+         
+            </table>
+            </div>
+            <div class="dept-button">
+                <a href="{% url 'customeradd' dept.id %}" class="update-button">Add Customer</a>
+            </div>
+            </div>
+        </section>
+    </section>
+  </section> 
+
+{% endblock %}
